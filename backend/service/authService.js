@@ -5,9 +5,6 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const crypto = require("crypto");
-const validate = async (req, res, next) => {
-  //use jwt to validate
-};
 
 const register = async (req, res, next) => {
   try {
@@ -67,9 +64,12 @@ const login = async (req, res, next) => {
     const secretKey = process.env.SECRET_KEY;
     const token = jwt.sign(payload, secretKey);
     const refreshToken = generateRefreshToken();
+    //call another function async to set the user online
     res.json({
       token: token,
       refreshToken: refreshToken,
+      emailId: userStored.emailId,
+      userName: userStored.userName,
     });
 
     //return a jwt here

@@ -1,0 +1,13 @@
+.splitScreen {
+  width: 100%;
+}
+
+.leftScreen {
+  width: 30%;
+  float: left;
+}
+
+.rightScreen {
+  width: 70%;
+  float: right;
+}

@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const authRouter = require("./routes/authRoutes");
+const friendRouter = require("./routes/friendRoute");
 
 require("dotenv").config();
 
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3002;
 app.use(express.json());
 app.use(cors());
 app.use("/api/authentiaction", authRouter);
+app.use("/api/friend", friendRouter);
 //add authentication middleware here
 
 const server = http.createServer(app);
